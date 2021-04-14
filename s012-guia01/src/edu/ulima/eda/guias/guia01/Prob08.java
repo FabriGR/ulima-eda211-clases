@@ -18,7 +18,7 @@ public class Prob08 {
         //Recorremos el array
         for(int i = 0; i < numbers.length; i++){
             //Verificamos si el elemento "i" es primo
-            if(isPrime(numbers[i]) == true){
+            if(Prob03.isPrime(numbers[i]) == true){
                 //Numero es primo
                 countPrimes = countPrimes + 1;
             }else{
@@ -29,21 +29,7 @@ public class Prob08 {
         System.out.println("Cantidad de primos: " + countPrimes);
         System.out.println("Cantidad de compuestos: " + countNonPrimes);
     }
-    
-    public static boolean isPrime(int n){
-        int count = 0;
-        for(int i = 1; i <= n; i++){
-            if(n % i == 0){
-                count = count + 1;
-            }
-        }
-        if(count == 2){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    
+       
     public static void main(String[] args){
         int[] numbers = {2, 5, 88, 13, 17, 200};
         showPrimes(numbers);
