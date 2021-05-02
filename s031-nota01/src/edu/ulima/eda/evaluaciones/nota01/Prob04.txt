@@ -1,0 +1,35 @@
+A)
+for(int i = 1; i < n * n * n; i++){
+    for(int j = 1; j < n; j++){
+        for(int k = 0; k < 100; k+=3){
+            contador++; <----
+        }       
+   }
+}
+Para saber la cantidad de veces que se ejecuta la linea mostrada
+debemos evaluar los 3 bucles. Observamos que no hay dependencia entre ellos:
+Primer bucle --> (n * n * n) - 1 veces. Observemos que la condicion es <, no <=.
+Segundo bucle --> n - 1 veces. Por la misma razón.
+Tercer bucle --> No depende de n. Tomará los valores 0, 3, 6, 9, 12, ... , 99.
+Vemos que para n = 6 habrían 3 elementos (n/3 + 1), para n = 9, 4 elementos (n/3 + 1).
+Entonces para n = 99 tendremos 99/3 + 1 = 34 elementos.
+
+Tenemos entonces: T(n) = (n^3-1) * (n-1) * (34) = 34*(n^4 - n^3 - n + 1)
+Por lo tanto, el algoritmo es O(n^4).
+
+
+B)
+for(int i = 1; i <= n; i++){
+    for(int j = i; j <= n; j++){
+        for(int k = 1; k <= n * n; k++){
+            System.out.println("Texto");
+        }
+    }
+}
+Observamos que existe dependencia entre los 2 bucles externos y es una expresion
+que ya habiamos visto. La cantidad de veces que se ejecuta es: n*(n+1)/2.
+A este resultado debemos multiplicarlo por la cantidad de veces que corre el bucle
+interno: n^2.
+
+T(n) = n^2 *n*(n+1)/2 = 1/2 * n^3 * (n +1) = 1/2 * (n^4 + n^3).
+Por lo tanto, el algoritmo es O(n^4).
